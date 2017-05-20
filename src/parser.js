@@ -11,10 +11,10 @@ var requestImg = require('request').defaults({ encoding: null });
 var debug = false;
 
 var client = new Twitter({
-  consumer_key: '4CXGmEvrvuNrh7qOVIKqn0VJi',
-  consumer_secret: 'N9q5xSvjr3lV2NrvAxPBKjGMqf32YDevpZG255pCXWrLVQeigA',
-  access_token_key: '59238476-LZcmQA1TJahrJC5TctihOPY1gAxIUC692wDXrEzII',
-  access_token_secret: 'DEFyyHFhIV9lXwTU71Hna2rAhlAP9SHBx6Y5M3lcIMON3'
+  consumer_key: '',
+  consumer_secret: '',
+  access_token_key: '',
+  access_token_secret: ''
 });
 
 
