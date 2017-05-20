@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="csrf_param" content="authenticity_token">
+    <meta name="csrf_token" content="c668e6496968add17e6bb2f2fd0ecaaa212c6f6a">
+
+    <link href="https://abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <title>Card Validator | Twitter Developers</title>
+
+        <link rel="stylesheet" href="https://ton.twimg.com/tfw/css/bundle3137bb9abf1e84d03a921d8003b6703bdc9c1d92.css">
+    <link rel="stylesheet" href="https://ton.twimg.com/tfw/css/vendor1a5fc0c4b727a95322f608e2426b98f1275d6292.css">
+
+  </head>
+  <body>
+    <div class="StickyFooter-body">
+      <div class="Navigation">
+  <div class="Navigation-content u-cf">
+    <div class="Navigation-brand u-pullLeft">
+      <a class="Navigation-link u-alignMiddle" href="https://dev.twitter.com">
+        <span class="Icon Icon--large Icon--logo u-alignMiddle u-marginRm"></span>Developer
+      </a>
+    </div>
+
+    <div class="Navigation-userInfo u-pullRight">
+      <img class="u-alignMiddle" src="https://pbs.twimg.com/profile_images/854318821703864320/AimHn_SA_mini.jpg">
+    </div>
+
+    <ul class="u-pullRight u-marginRl">
+      <li class="u-inlineBlock">
+        <a class="Navigation-link Navigation-selectable u-block u-paddingHl" href="https://dev.twitter.com/cards">
+          <span class="u-alignMiddle">Documentation</span>
+        </a>
+      </li>
+      <li class="u-inlineBlock">
+        <a class="Navigation-link Navigation-selectable u-block u-paddingHl" href="https://twittercommunity.com/category/cards">
+          <span class="u-alignMiddle">Community</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+      <div class="MainContent">
+            <div class="Header Grid-cell u-paddingTm u-borderB u-hideEmpty">  <div class="Grid u-marginTl">
+    <div class="Grid-cell u-size1of2 u-paddingTs">
+      <h1>Card validator</h1>
+    </div>
+  </div>
+</div>
+    <div id="Notification" class="Notification Label Label--info u-sizeFull u-marginVm is-hidden">
+      <button class="Notification-close">x</button>
+      <div class="Notification-content"></div>
+    </div>
+    <div class="Grid-cell">  <div class="Previewer u-paddingTl u-marginTl">
+    <div class="Previewer-preview u-marginLl u-pullRight" id="GettingStarted">
+      <div class="Previewer-preview-section js-gettingStarted">
+  <div class="Grid-cell u-marginBm">
+  <div class="Previewer-title">Getting started</div>
+</div>
+<div class="u-borderT u-paddingTl">
+  Type the URL to your card metadata.
+</div>
+</div>
+<div class="Previewer-preview-section js-preview is-hidden">
+  <div class="Grid-cell u-marginBm">
+    <div class="Previewer-title u-pullLeft">Card preview</div>
+  </div>
+
+  <div class="EmbeddedTweet">
+  <div class="EmbeddedTweet-author u-cf">
+    <img class="EmbeddedTweet-author-avatar"
+         src="https://pbs.twimg.com/profile_images/854318821703864320/AimHn_SA_mini.jpg">
+    <div class="EmbeddedTweet-author-name u-pullLeft">Gustavo Ferreyra</div>
+    <div class="EmbeddedTweet-author-handle u-pullLeft">@gus_ferreyra</div>
+  </div>
+  <div class="EmbeddedTweet-text">
+    <p>The card for your website will look a little something like this!</p>
+  </div>
+
+  <div class="CardPreview u-marginVm" id="CardPreview" data-preview-endpoint="/preview/html">
+  <div class="CardPreview-sampleOverlay">
+    <h5 class="CardPreview-sampleOverlay-text">Card preview</h5>
+  </div>
+  <div class="CardPreview-errorMessage">Unable to render Card preview</div>
+  <div class="CardPreview-spinner"></div>
+  <div class="CardPreview-preview js-cardPreview"></div>
+  <div class="CardPreview-unsupportedMessage">Card not supported on web platform</div>
+</div>
+
+</div>
+
+  <div class="u-marginTxl">
+    <div class="RuntimeConsole" id="RuntimeConsole">
+  <div class="RuntimeConsole-header CollapseTrigger u-roundedT js-collapseTrigger" data-collapse-target="+ .js-runtimeConsole">
+    <div class="u-pullLeft">Log</div>
+    <span class="RuntimeConsole-header-chevron u-pullRight js-collapseIndicator"></span>
+  </div>
+  <div class="RuntimeConsole-console CollapseTarget js-runtimeConsole"></div>
+</div>
+  </div>
+</div>
+    </div>
+    <div class="Previewer-data">
+      <div class="Grid-cell u-marginBm">
+        <div class="Previewer-title">Card URL</div>
+      </div>
+      <div class="u-borderT u-paddingTl">
+        <form id="ValidationForm" action="http://httpbin.org/post" method="POST">
+          <input type="hidden" name="authenticity_token" value="c668e6496968add17e6bb2f2fd0ecaaa212c6f6a">
+
+          <div class="Grid">
+  <div class="Grid-cell u-sizeFill">
+    <input class="FormControl" type="url" name="url"
+           placeholder="Enter the URL of the page with the meta tags to validate">
+    <input type="hidden" name="platform" value="Swift-12" />
+  </div>
+  <div class="Grid-cell u-sizeFill u-marginTm">
+    <input type="submit" class="Button Button--primary u-sizeFull u-pullRight" value="Preview card">
+  </div>
+</div>
+        </form>
+      </div>
+      <div class="WhitelistStatus u-borderT u-paddingTm" id="WhitelistInfo">
+        <div class="WhitelistStatus-container js-whitelistInfo"></div>
+        <form class="WhitelistStatus-form is-hidden u-overflowHidden js-whitelistRequestForm" method="POST" action="/validator/whitelist" id="WhitelistRequestForm">
+          <div class="js-whitelistForm"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+      </div>
+      <div class="StickyFooter-push"></div>
+    </div>
+    <div class="StickyFooter-footer">
+      
+    </div>
+    
+        <script src="https://ton.twimg.com/tfw/js/vendor8a60a31d4ce155d3b674fe4d46e348c037dd29a8.js" type="text/javascript"></script>
+
+        <script src="https://ton.twimg.com/tfw/js/validationac18d0933891a22e05978af76e132479c8fd8e64.js" type="text/javascript"></script>
+
+      <script data-name="consoleMessage" type="text/x-mustache-template">
+      <%#isInfo%>
+  <div class="RuntimeConsole-console-success">INFO: &nbsp;<% message %></div>
+<%/isInfo%>
+<%#isError%>
+  <div class="RuntimeConsole-console-error">ERROR: <% message %></div>
+<%/isError%>
+<%#isWarning%>
+<div class="RuntimeConsole-console-warning">WARN: &nbsp;<% message %></div>
+<%/isWarning%>
+<%#isLog%>
+  <div><span class="u-fontBold">Action taken:</span> <% message %></div>
+<%/isLog%>
+<%#isSpacer%>
+  <div></div>
+<%/isSpacer%>
+
+
+  </script>
+  <script data-name="whitelistForm" type="text/x-mustache-template">
+    <p class="WhitelistStatus-description">As a website owner you must opt-in to have cards displayed for your domain, and Twitter must
+  approve the integration. To register your domain, please provide the following information:</p>
+<input type="hidden" name="card_name" value="<%cardType%>">
+<input type="hidden" name="pattern" value="<%whitelistDomainPattern%>">
+<input type="hidden" name="url" value="<%url%>">
+
+<fieldset class="FormSection FormSection-group" >
+  <b>Administrative Contact</b>
+  <div class="u-textMuted u-textS u-marginBm">Contact information for the person responsible for administering cards on your website.</div>
+  <div class="RequiredField u-marginBs">Name</div>
+  <input type="text" class="FormControl u-marginBm" name="contact_name" value="<%contactName%>" required>
+  <div class="RequiredField u-marginBs">Email</div>
+  <input type="text" class="FormControl u-marginBm" name="contact_email" value="<%contactEmail%>" required>
+  <div class="RequiredField u-marginBs">Twitter Username</div>
+  <input type="text" class="FormControl" name="contact_screen_name" value="<%contactScreenName%>" required>
+</fieldset>
+
+<fieldset class="FormSection FormSection-group">
+  <b>Website Information</b>
+  <div class="RequiredField u-marginTm u-marginBs">Description</div>
+  <input type="text" class="FormControl" name="description" required>
+  <div class="u-textMuted u-textS u-marginBm">Short description of the site's content.</div>
+
+  <label class="checkbox u-marginBm">
+    <input name="is_sensitive" type="checkbox"> Mark my cards as containing sensitive content
+  </label>
+  <div class="u-textMuted u-textS u-marginBm">If your site publishes images or videos that may contain sensitive content, please check this box so that people can be warned before they see it.
+    <a href="https://support.twitter.com/articles/20169200" target="_blank">Learn more</a>.
+  </div>
+
+  <div class="RequiredField">Website Twitter Username</div>
+  <input type="text" class="FormControl" name="site_screen_name" value="<%contactScreenName%>" required>
+  <div class="u-textMuted u-textS">The primary Twitter handle associated with this domain. The owner of this Twitter account will have to confirm the request via email.</div>
+</fieldset>
+
+<button class="Button Button--primary Button--small js-requestApprovalButton u-pullRight" type="submit">Request Approval</button>
+<button class="Button Button--default Button--small js-cancelRequestButton u-pullRight u-marginRs">Cancel</button>
+  </script>
+  <script data-name="whitelistInfo" type="text/x-mustache-template">
+      <%^succeed%>
+    <div class="WhitelistStatus-status WhitelistStatus-status--Rejected u-paddingAm u-sizeFull">
+      <div class="u-marginBm"><%pattern%> whitelist request for <%cardType%> failed</div>
+      <ul><%#errors%><li>ERROR: <%.%></li><%/errors%></ul>
+    </div>
+  <%/succeed%>
+    <%#isNew%>
+    <div class="WhitelistStatus-status WhitelistStatus-status--New u-paddingAm u-overflowHidden u-sizeFull">
+      <%whitelistDomainPattern%> is not whitelisted for <%cardType%> card
+      <div class="u-marginTm">
+        <button class="Button Button--primary Button--small u-pullRight js-showRequestFormButton">Request Approval</button>
+      </div>
+    </div>
+    <%/isNew%>
+    <%#isPending%>
+    <div class="WhitelistStatus-status WhitelistStatus-status--Pending u-paddingAm u-sizeFull">
+      <%whitelistDomainPattern%> whitelist request for <%cardType%> card is pending approval
+    </div>
+    <%/isPending%>
+    <%#isApproved%>
+    <div class="WhitelistStatus-status WhitelistStatus-status--Approved u-paddingAm u-sizeFull">
+      <%whitelistDomainPattern%> whitelist request for <%cardType%> card was approved <span class="js-timestamp" data-content="<%statusUpdateTime%>"><%statusUpdateTime%></span>
+    </div>
+    <%/isApproved%>
+    <%#isRejected%>
+    <div class="WhitelistStatus-status WhitelistStatus-status--Rejected u-paddingAm u-sizeFull">
+      <%whitelistDomainPattern%> whitelist request for <%cardType%> card was rejected <span class="js-timestamp" data-content="<%statusUpdateTime%>"><%statusUpdateTime%></span>
+      <div class="u-marginTm">
+        <button class="Button Button--primary Button--small u-pullRight js-showRequestFormButton">Request Approval Again</button>
+      </div>
+    </div>
+    <%/isRejected%>
+    <%#isWhitelisted%>
+      <div class="WhitelistStatus-status WhitelistStatus-status--Approved u-paddingAm u-sizeFull">
+        <%whitelistDomainPattern%> is whitelisted for <%cardType%> card</span>
+      </div>
+    <%/isWhitelisted%>
+    <div class="WhitelistStatus-status is-hidden js-whitelistRequestLoading u-paddingVm u-sizeFull">
+      Requesting approval for <%whitelistDomainPattern%> for <%cardType%> card <img width="16" src="https://pbs.twimg.com/cards-validator/img/card_preview_spinner.gif">
+    </div>
+  </script>
+
+  </body>
+</html>
